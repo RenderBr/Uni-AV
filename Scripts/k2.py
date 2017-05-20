@@ -4,8 +4,6 @@ import tkinter.messagebox
 # This is a fork of Kicomav, an antivirus made in Python.
 # New Author: RenderBr
 
-
-
 #changing compass directions bcuz it's annoying
 right = E
 up = N
