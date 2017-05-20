@@ -10,15 +10,23 @@ top = N
 left = W
 bottom = S
 
-autoremove = 0
+autoremove = None
+autoupdate = None
+languageList = []
+languageList.append('English')
+languageList.append('Chinese')
+languageList.append('Spanish')
+selectedLanguage = languageList[0]
 
 root = Tk()
 
 #Main frame
-mainframe = Frame(root, height=500, bg="black", relief=SUNKEN)
+mainframe = Frame(root, height=500, width=1000, bg="black", relief=SUNKEN)
 mainframe.pack()
 
+#
 #Configuring root and Top Window
+#
 root.wm_title("Uni Antivirus")
 root.resizable(0,0)
 
@@ -31,6 +39,12 @@ def optionsWindow():
 
     autoRemove = Checkbutton(options, text="Automatically remove found threats.", variable=autoremove)
     autoRemove.pack()
+
+    autoUpdate = Checkbutton(options, text="Automatically update definitions while computer is in idle state.", variable=autoupdate)
+    autoUpdate.pack()
+
+    language = OptionMenu(options, selectedLanguage, *languageList)
+    language.pack()
 
     options.resizable(0,0)
     options.wm_title("Settings")
