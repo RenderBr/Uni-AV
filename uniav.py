@@ -1,5 +1,8 @@
-﻿from tkinter import *
+﻿from tkinter import Tk
+from tkinter import *
 import tkinter.messagebox
+from tkinter.filedialog import askopenfilename
+import os
 
 # This is a fork of Kicomav, an antivirus made in Python.
 # New Author: RenderBr
@@ -30,6 +33,9 @@ mainframe.pack()
 root.wm_title("Uni Antivirus")
 root.resizable(0,0)
 
+def scanCertainFile():
+    file = askopenfilename()
+
 def quickScan():
     print("Scanning")
     tkinter.messagebox.showinfo("Scan complete", "The scan has been completed!")
@@ -58,6 +64,8 @@ runQuickScan = Button(mainframe, text="Quick Scan", command=quickScan, fg="white
 runQuickScan.pack(side=LEFT)
 runDirScan = Button(mainframe, text="Scan in a certain directory", command=quickScan, fg="white", bg="gray")
 runDirScan.pack(side=LEFT)
+runOneFileScan = Button(mainframe, text="Scan one file", command=scanCertainFile, fg="white", bg="gray")
+runOneFileScan.pack(side=LEFT)
 settingsButton = Button(mainframe, text="Settings", command=optionsWindow, fg="white", bg="gray")
 settingsButton.pack(side=LEFT)
 
