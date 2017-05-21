@@ -4,27 +4,9 @@ import tkinter.messagebox
 from tkinter.filedialog import askopenfilename
 import os
 import hashlib
-import readhash
-import time
-import shutil
-
-
-# This is a fork of Kicomav, an antivirus made in Python.
-# New Author: RenderBr
-
-#changing compass directions bcuz it's annoying
-right = E
-top = N
-left = W
-bottom = S
 
 autoremove = None
 autoupdate = None
-languageList = []
-languageList.append('English')
-languageList.append('Chinese')
-languageList.append('Spanish')
-selectedLanguage = languageList[0]
 fyle = None
 
 root = Tk()
@@ -36,7 +18,7 @@ mainframe.pack()
 #
 #Configuring root and Top Window
 #
-root.wm_title("Uni Antivirus")
+root.wm_title("UNIAV")
 root.resizable(0,0)
 
 def scanAFile():
@@ -54,15 +36,15 @@ def scanAFile():
             filehash = hasher.hexdigest()
             print(filehash)
             if filehash == "1e958e2659e359bea13713061226b681":
-                print("You are infected!")
+                print("Match")
                 removeTheFile()
 
 def removeTheFile():
-    answer = tkinter.messagebox.askquestion(title="A threat has been found!", message="Do you want to remove the threat?")
+    answer = tkinter.messagebox.askquestion(title="File", message="Do you want to remove this file? It has been found as a threat.")
 
     if answer == 'yes':
-        shutil.rmtree(fyle)
-        tkinter.messagebox.showinfo(title="The threat has been removed!", message="We have removed the threat successfully")
+        os.unlink(fyle)
+        tkinter.messagebox.showinfo(title="File", message="We have removed the dangerous file.")
 
 def quickScan():
     print("Scanning")
@@ -76,9 +58,6 @@ def optionsWindow():
 
     autoUpdate = Checkbutton(options, text="Automatically update definitions while computer is in idle state.", variable=autoupdate)
     autoUpdate.pack()
-
-    language = OptionMenu(options, selectedLanguage, *languageList)
-    language.pack()
 
     options.resizable(0,0)
     options.wm_title("Settings")
