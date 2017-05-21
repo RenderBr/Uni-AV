@@ -1,4 +1,4 @@
-# Uni-AV 0.0.1 Alpa
+# Uni-AV 0.0.1 Alpha
 
 [![License](https://img.shields.io/badge/license-gpl2-blue.svg)](LICENSE)
 ![Platform](https://img.shields.io/badge/platform-windows-lightgrey.svg)
